@@ -5,6 +5,7 @@ setup(
     packages=find_packages(),
     install_requires=[
         "dbt-bigquery",
+        "dbt-snowflake",
         "dagster",
         "dagster-cloud",
         "dagster-dbt",

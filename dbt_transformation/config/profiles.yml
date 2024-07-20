@@ -1,14 +1,18 @@
 dbt_transformation:
   outputs:
     dev:
-      dataset: "{{ env_var('DBT_BIGQUERY_DATASET', '') }}"
-      job_execution_timeout_seconds: 300
-      job_retries: 1
-      keyfile: "{{ env_var('DBT_BIGQUERY_KEYFILE_PATH', '') }}"
-      location: "{{ env_var('DBT_BIGQUERY_LOCATION', '') }}"
-      method: service-account
-      priority: interactive
-      project: "{{ env_var('DBT_BIGQUERY_PROJECT', '') }}"
+      type: snowflake
+      account: ptxeavh-el73711
+
+      # User/password auth
+      user: Mustafa
+      password: "@22Mustafa"
+
+      role: ACCOUNTADMIN
+      database: BIG_STAR_DATABASE
+      warehouse: COMPUTE_WH
+      schema: RAW_DATA
       threads: 1
-      type: bigquery
+      client_session_keep_alive: False
+      query_tag:
   target: dev
