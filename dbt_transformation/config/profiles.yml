@@ -1,18 +1,25 @@
 dbt_transformation:
+  target: dev
   outputs:
     dev:
       type: snowflake
-      account: ptxeavh-el73711
+      account: {{ env_var('DBT_SNOWFLAKE_ID', '') }} #[account id]
 
       # User/password auth
-      user: Mustafa
-      password: "@22Mustafa"
+      user: {{ env_var('DBT_SNOWFLAKE_USER', '') }} #[username]
+      password: {{ env_var('DBT_SNOWFLAKE_PASSWORD', '') }} #[password]
 
-      role: ACCOUNTADMIN
-      database: BIG_STAR_DATABASE
-      warehouse: COMPUTE_WH
-      schema: RAW_DATA
-      threads: 1
+      role: {{ env_var('DBT_SNOWFLAKE_ROLE', '') }} #[user role]
+      database: {{ env_var('DBT_SNOWFLAKE_DB', '') }} #[database name]
+      warehouse: {{ env_var('DBT_SNOWFLAKE_WH', '') }} #[warehouse name]
+      schema: {{ env_var('DBT_SNOWFLAKE_SCHEMA', '') }} #[dbt schema]
+      threads: {{ env_var('DBT_SNOWFLAKE_THREADS', '') }} #[1 or more]
       client_session_keep_alive: False
-      query_tag:
-  target: dev
+      query_tag: {{ env_var('DBT_SNOWFLAKE_TAG', '') }} #[anything]
+
+      # optional
+      connect_retries: 0 # default 0
+      connect_timeout: 10 # default: 10
+      retry_on_database_errors: False # default: false
+      retry_all: False  # default: false
+      reuse_connections: False
