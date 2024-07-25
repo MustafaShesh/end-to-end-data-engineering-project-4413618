@@ -1,16 +1,16 @@
 version: 2
 
 sources:
-  - name: RAW_DATA
-    database: BIG_STAR_DATABASE
-    schema: RAW_DATA
+  - name: raw_data
+    database: big_star_database
+    schema: raw_data
     freshness:
       warn_after:
         count: 24
         period: hour
     loaded_at_field: "_airbyte_extracted_at"
     tables:
-      - name: CUSTOMERS
-      - name: ORDERS
-      - name: ORDER_ITEMS
-      - name: PRODUCTS
+      - name: customers
+      - name: orders
+      - name: order_items
+      - name: products

@@ -1,7 +1,7 @@
 select
-    ORDER_ID,
-    CUSTOMER_ID,
-    STATUS as ORDER_STATUS,
-    ORDER_APPROVED_AT,
-    ORDER_DELIVERED_AT,
-from {{ source("RAW_DATA", "ORDERS") }}
+    order_id,
+    customer_id,
+    status as order_status,
+    order_approved_at,
+    order_delivered_at,
+from {{ source("raw_data", "orders") }}

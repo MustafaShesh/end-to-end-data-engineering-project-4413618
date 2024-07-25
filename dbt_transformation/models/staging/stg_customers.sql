@@ -1,2 +1,2 @@
-select CUSTOMER_ID, EMAIL, GENDER, CITY, COUNTRY
-from {{ source("RAW_DATA", "CUSTOMERS") }}
+select customer_id, email, gender, city, country
+from {{ source("raw_data", "customers") }}
