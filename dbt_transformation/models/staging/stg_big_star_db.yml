@@ -1,35 +1,35 @@
 version: 2
 
 models:
-  - name: stg_users
+  - name: stg_customers
     columns:
-      - name: id
+      - name: customer_id
         description: Unique id that idenifies a user
         data_tests:
           - unique
           - not_null
-  - name: stg_purchases
+  - name: stg_orders
     columns:
-      - name: id
+      - name: order_id
         description: Unique id that idenifies a purchase
         data_tests:
           - unique
           - not_null
-      - name: user_id
-        description: Unique id that idenifies a user, it holds a reference to the stg_users model
+      - name: customer_id
+        description: Unique id that idenifies a user, it holds a reference to the stg_custoners model
         data_tests:
           - relationships:
-              to: ref('stg_users')
-              field: id
-      # - name: order_status
-      #   data_tests:
-      #     - accepted_values:
-      #         values:
-      #           - created
-      #           - shipped
-      #           - approved
-      #           - canceled
-      #           - invoiced
-      #           - delivered
-      #           - processing
-      #           - unavailable
+              to: ref('stg_customers')
+              field: customer_id
+      - name: order_status
+        data_tests:
+          - accepted_values:
+              values:
+                - created
+                - shipped
+                - approved
+                - canceled
+                - invoiced
+                - delivered
+                - processing
+                - unavailable

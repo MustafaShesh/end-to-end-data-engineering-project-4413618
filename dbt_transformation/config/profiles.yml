@@ -3,19 +3,19 @@ dbt_transformation:
   outputs:
     dev:
       type: snowflake
-      account: {{ env_var('DBT_SNOWFLAKE_ID', '') }} #[account id]
+      account: {{ env_var('DBT_SNOWFLAKE_ID', '',) }} #[account id]
 
       # User/password auth
-      user: {{ env_var('DBT_SNOWFLAKE_USER', '') }} #[username]
-      password: {{ env_var('DBT_SNOWFLAKE_PASSWORD', '') }} #[password]
+      user: {{ env_var('DBT_SNOWFLAKE_USER', '',) }} #[username]
+      password: {{ env_var('DBT_SNOWFLAKE_PASSWORD', '',) }} #[password]
 
-      role: {{ env_var('DBT_SNOWFLAKE_ROLE', '') }} #[user role]
-      database: {{ env_var('DBT_SNOWFLAKE_DB', '') }} #[database name]
-      warehouse: {{ env_var('DBT_SNOWFLAKE_WH', '') }} #[warehouse name]
-      schema: {{ env_var('DBT_SNOWFLAKE_SCHEMA', '') }} #[dbt schema]
-      threads: {{ env_var('DBT_SNOWFLAKE_THREADS', '') }} #[1 or more]
+      role: {{ env_var('DBT_SNOWFLAKE_ROLE', '',) }} #[user role]
+      database: {{ env_var('DBT_SNOWFLAKE_DB', '',) }} #[database name]
+      warehouse: {{ env_var('DBT_SNOWFLAKE_WH', '',) }} #[warehouse name]
+      schema: {{ env_var('DBT_SNOWFLAKE_SCHEMA', '',) }} #[dbt schema]
+      threads: {{ env_var('DBT_SNOWFLAKE_THREADS', '',) }} #[1 or more]
       client_session_keep_alive: False
-      query_tag: {{ env_var('DBT_SNOWFLAKE_TAG', '') }} #[anything]
+      query_tag: {{ env_var('DBT_SNOWFLAKE_TAG', '',) }} #[anything]
 
       # optional
       connect_retries: 0 # default 0

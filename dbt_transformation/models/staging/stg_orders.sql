@@ -1,0 +1,7 @@
+select
+    ORDER_ID,
+    CUSTOMER_ID,
+    STATUS as ORDER_STATUS,
+    ORDER_APPROVED_AT,
+    ORDER_DELIVERED_AT,
+from {{ source("RAW_DATA", "ORDERS") }}

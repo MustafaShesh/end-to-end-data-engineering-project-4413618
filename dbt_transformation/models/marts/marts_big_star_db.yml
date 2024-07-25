@@ -1,15 +1,18 @@
 version: 2
 
 models:
-  - name: dim_users
+  - name: dim_customers
     columns:
-      - name: id
+      - name: customer_id
         data_tests:
           - unique
           - not_null
       - name: email
         data_tests:
           - not_null
-      - name: address
+      - name: city
+        data_tests:
+          - not_null
+      - name: country
         data_tests:
           - not_null

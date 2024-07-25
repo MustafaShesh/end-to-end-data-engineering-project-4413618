@@ -10,6 +10,7 @@ sources:
         period: hour
     loaded_at_field: "_airbyte_extracted_at"
     tables:
+      - name: CUSTOMERS
+      - name: ORDERS
+      - name: ORDER_ITEMS
       - name: PRODUCTS
-      - name: PURCHASES
-      - name: USERS

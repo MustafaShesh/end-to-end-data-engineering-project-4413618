@@ -1,0 +1,2 @@
+select CUSTOMER_ID, EMAIL, GENDER, CITY, COUNTRY
+from {{ source("RAW_DATA", "CUSTOMERS") }}
